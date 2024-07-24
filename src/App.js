@@ -3,7 +3,7 @@ import CheckinForm from "./Components/CheckinForm";
 import Carousel from "./Components/Carousel";
 import Cards from "./Components/Cards";
 import ThingsCard from "./Components/ThingsCard";
-// import HamburgerMenu from "./Components/Hamburger";
+import HamburgerMenu from "./Components/Hamburger";
 
 const App = () => {
   const [signedIn, setSignedIn] = useState(false);
@@ -21,6 +21,7 @@ const App = () => {
           <Carousel />
           <Cards />
           <ThingsCard />
+          <HamburgerMenu></HamburgerMenu>
         </>
       ) : (
         <>
