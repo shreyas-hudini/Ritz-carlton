@@ -20,7 +20,7 @@ const App = () => {
       {signedIn ? (
         <>
           <Carousel />
-          <HotelCard/>
+          <HotelCard />
           <Cards />
           <ThingsCard />
           <HamburgerMenu></HamburgerMenu>
@@ -28,7 +28,7 @@ const App = () => {
       ) : (
         <>
           <Carousel />
-          <HotelCard/>
+          <HotelCard />
           <Cards />
           <ThingsCard />
           <CheckinForm onSignIn={handleSignIn} />

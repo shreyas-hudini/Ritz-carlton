@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './coursel.css';
 import {images} from './courselData.js';
+import HamburgerMenu from "./Hamburger.js";
  
  
 const Carousel = () => {
@@ -36,7 +37,7 @@ const Carousel = () => {
     return url.match(/\.(mp4|webm|ogg)$/) !== null;
 };
  
-return (
+return ( 
   <div className="carousel">
     <div className="carousel-container">
       {/* <button className="carousel-button" onClick={handlePrevious}>
@@ -74,7 +75,7 @@ return (
     </div>
  
     <div>
-      {/* {images.map((_, index) => (
+      {images.map((_, index) => (
         <button
           key={index}
           className={`carousel-indicator ${
@@ -82,7 +83,7 @@ return (
             }`}
             onClick={() => handleIndicatorClick(index)}
           ></button>
-        ))} */}
+        ))}
       </div>
     </div>
   );
