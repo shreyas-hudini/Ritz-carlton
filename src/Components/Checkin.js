@@ -7,7 +7,7 @@ function Checkin() {
   return (
     <Stack spacing={2} direction="row" sx={{ justifyContent: "center" }}>
       <CheckinForm></CheckinForm>
-      <HamburgerMenu></HamburgerMenu>
+      {/* <HamburgerMenu></HamburgerMenu> */}
     </Stack>
   );
 }

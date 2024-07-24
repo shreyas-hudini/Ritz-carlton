@@ -1,50 +1,90 @@
-import React, { useState, useEffect } from "react";
-import { textItems } from "../carouselData.js";
-
+import React, { useState } from "react";
+import './coursel.css';
+import {images} from './courselData.js';
+import HamburgerMenu from "./Hamburger.js";
+ 
+ 
 const Carousel = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    const handleSlideChange = (event) => {
-      if (event.clientX < window.innerWidth / 2) {
-        setCurrentSlide(
-          (currentSlide - 1 + textItems.length) % textItems.length
-        );
-      } else {
-        setCurrentSlide((currentSlide + 1) % textItems.length);
-      }
-    };
-
-    document.addEventListener("click", handleSlideChange);
-
-    return () => {
-      document.removeEventListener("click", handleSlideChange);
-    };
-  }, [currentSlide, textItems.length]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((currentSlide + 1) % textItems.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [currentSlide, textItems.length]);
-
-  return (
-    <div className="carousel">
-      <div className="carousel-container">
-        <video
-          src="https://videos.pexels.com/video-files/4069480/4069480-uhd_2560_1440_25fps.mp4"
-          autoPlay
-          loop
-          muted
-        />
+  const [currentIndex, setCurrentIndex] = useState(0);
+ 
+  const handlePrevious = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+ 
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+ 
+  const handleIndicatorClick = (index) => {
+    setCurrentIndex(index);
+  };
+ 
+  const handleImageClick = (e) => {
+    const { offsetX, target } = e.nativeEvent;
+    const clickPosition = offsetX / target.clientWidth;
+    if (clickPosition < 0.5) {
+      handlePrevious();
+    } else {
+      handleNext();
+    }
+  };
+ 
+  const isVideo = (url) => {
+    return url.match(/\.(mp4|webm|ogg)$/) !== null;
+};
+ 
+return ( 
+  <div className="carousel">
+    <div className="carousel-container">
+      {/* <button className="carousel-button" onClick={handlePrevious}>
+        {" "}
+        ⮜{" "}
+      </button> */}
+ 
+      <div className="image-text-container">
+        {isVideo(images[currentIndex].url) ? (
+          <video
+            muted
+            className="carousel-video"
+            src={images[currentIndex].url}
+            autoPlay
+            loop
+            onClick={handleImageClick}
+          />
+        ) : (
+          <img
+            className="carousel-image"
+            src={images[currentIndex].url}
+            alt={images[currentIndex].heading}
+            onClick={handleImageClick}
+          />
+        )}
         <div className="img-txt">
-          <h1 className="image-overlay-text">The Ritz-Carlton Kyoto</h1>
-          <div className="scroll">
-            <p className="image-overlay-desc">{textItems[currentSlide].description}</p>
-          </div>
-        </div>
+        <h2 className="image-overlay-text">{images[currentIndex].heading}</h2>
+        <p className="image-overlay-desc">{images[currentIndex].description}</p> </div>
       </div>
+ 
+      {/* <button className="carousel-button" onClick={handleNext}>
+        {" "}
+        ⮞{" "}
+      </button> */}
+    </div>
+ 
+    {/* <div>
+      {images.map((_, index) => (
+        <button
+          key={index}
+          className={`carousel-indicator ${
+            index === currentIndex ? "active" : ""
+            }`}
+            onClick={() => handleIndicatorClick(index)}
+          ></button>
+        ))}
+      </div> */}
     </div>
   );
 };

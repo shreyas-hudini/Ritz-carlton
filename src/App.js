@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import CheckinForm from "./Components/CheckinForm";
-import Carousel from "./Components/Carousel";
-import Cards from "./Components/Cards";
-import ThingsCard from "./Components/ThingsCard";
-import HotelCard from "./Components/HotelCard";
-import HamburgerMenu from "./Components/Hamburger";
+import React, { useState } from 'react';
+import CheckinForm from './Components/CheckinForm';
+import Carousel from './Components/Carousel';
+import Cards from './Components/Cards';
+import ThingsCard from './Components/ThingsCard';
+import HotelCard from './Components/HotelCard';
+import HamburgerMenu from './Components/Hamburger';
+import DiningAndSpa from './Components/DiningAndSpa';
 
 const App = () => {
   const [signedIn, setSignedIn] = useState(false);
@@ -20,15 +21,16 @@ const App = () => {
       {signedIn ? (
         <>
           <Carousel />
-          <HotelCard/>
+          <HotelCard />
           <Cards />
           <ThingsCard />
           <HamburgerMenu></HamburgerMenu>
+          <DiningAndSpa />
         </>
       ) : (
         <>
           <Carousel />
-          <HotelCard/>
+          <HotelCard />
           <Cards />
           <ThingsCard />
           <CheckinForm onSignIn={handleSignIn} />
