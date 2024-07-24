@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  /* max-width: 600px; */
+  /* margin: 0 auto;
+    margin-top: 10%; */
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-image {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  height: 520px;
+  transition-duration: 1s;
+  transition-timing-function: linear;
+  transition-delay: 2s;
+}
+
+.carousel-video {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  height: 520px;
+  transition-duration: 1s;
+  transition-timing-function: linear;
+  transition-delay: 2s;
+  animation: infiniteLoop 10s linear infinite;
+  filter: brightness(75%);
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.carousel-button:focus {
+  outline: none;
+}
+
+.carousel-button:nth-of-type(1) {
+  left: 10px;
+}
+
+.carousel-button:nth-of-type(2) {
+  right: 10px;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.carousel-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: lightgray;
+  border: none;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.carousel-indicator.active {
+  background-color: rgb(211, 193, 193);
+}
+
+.image-text-container {
+  position: relative;
+}
+.img-txt {
+  position: absolute;
+  bottom: 16%;
+  left: 17%;
+  width: 100%;
+  text-align: center;
+}
+.image-overlay-text,
+.image-overlay-desc {
+  color: white;
+  width: 60%;
+  font-family: "Satisfy", cursive;
+  /* text-transform: uppercase; */
+  text-shadow: 3px 3px 3px rgb(82, 99, 119);
+  font-size: 5rem;
+}
+.image-overlay-desc {
+  font-size: 1.2rem;
+  font-family: "Nunito Sans", sans-serif;
+  /* text-shadow: 3px 3px 3px rgb(82, 99, 119); */
+}

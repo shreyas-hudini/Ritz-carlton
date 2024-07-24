@@ -1,0 +1,21 @@
+.Hamburger {
+  background-color: rgb(255, 255, 255, 0);
+}
+
+.List {
+  background-color: rgb(255, 255, 255, 0);
+  display: flex;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+}
+
+.hamburgerbutton {
+  background-color: white;
+}
