@@ -30,7 +30,7 @@ video {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
+  
   text-align: center;
 }
 
@@ -40,8 +40,9 @@ video {
   font-family: "Satisfy", cursive;
   font-size: 5rem;
   text-shadow: 3px 3px 3px rgb(82, 99, 199);
-  margin: 20px 5px; /* corrected margin */
+  margin: 20px 5px; 
   text-align: center;
+  color: white;
 }
 
 .carousel-container {
@@ -58,6 +59,7 @@ video {
   text-align: center;
   position: relative;
   bottom: 0%;
+  color: white;
 }
 
 
