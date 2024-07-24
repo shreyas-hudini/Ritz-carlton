@@ -3,6 +3,7 @@ import CheckinForm from "./Components/CheckinForm";
 import Carousel from "./Components/Carousel";
 import Cards from "./Components/Cards";
 import ThingsCard from "./Components/ThingsCard";
+import HotelCard from "./Components/HotelCard";
 import HamburgerMenu from "./Components/Hamburger";
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
       {signedIn ? (
         <>
           <Carousel />
+          <HotelCard />
           <Cards />
           <ThingsCard />
           <HamburgerMenu></HamburgerMenu>
@@ -26,6 +28,7 @@ const App = () => {
       ) : (
         <>
           <Carousel />
+          <HotelCard />
           <Cards />
           <ThingsCard />
           <CheckinForm onSignIn={handleSignIn} />

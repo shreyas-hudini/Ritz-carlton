@@ -1,0 +1,21 @@
+.hotel-desc p{
+    color: black;
+  font-size: 17px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 100;
+  margin: 2% 0;
+    
+}
+
+.hotel-desc button{
+    background-color: transparent;
+    padding:1% 4%;
+    border: solid 1px;
+    font-size: 18px;
+   
+}
+.hotel-desc{
+    text-align: center;
+    padding: 5%;
+   background-image: url('');
+}
