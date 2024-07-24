@@ -74,7 +74,7 @@ return (
       </button> */}
     </div>
  
-    <div>
+    {/* <div>
       {images.map((_, index) => (
         <button
           key={index}
@@ -84,7 +84,7 @@ return (
             onClick={() => handleIndicatorClick(index)}
           ></button>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };
