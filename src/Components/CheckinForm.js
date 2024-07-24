@@ -7,18 +7,13 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { TimePicker } from "@mui/x-date-pickers";
+import {useDispatch,useSelector} from react-redux
+import { submitForm } from "../actions/formactions";
 
 const CheckinForm = ({ onSignIn }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    firstname: "",
-    lastname: "",
-    gender: "",
-    number: "",
-    dob: null,
-    arrival: null,
-    nationality: "",
-  });
+ const dispatch = useDispatch();
+ const formData = useSelector(state=>state.form.formData)
 
   localStorage.setItem("formData", JSON.stringify(formData));
 
@@ -28,18 +23,19 @@ const CheckinForm = ({ onSignIn }) => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormData({
+    dispatch(submitForm({
       ...formData,
       [name]: value,
-    });
+    }));
   };
 
   const handleDateChange = (value, field) => {
-    setFormData({
+    dispatch(submitForm({
       ...formData,
       [field]: value,
-    });
+    }));
   };
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
