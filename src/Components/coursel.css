@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 .carousel {
@@ -30,7 +30,7 @@ video {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
+
   text-align: center;
 }
 
@@ -40,9 +40,10 @@ video {
   font-family: "Satisfy", cursive;
   font-size: 5rem;
   text-shadow: 3px 3px 3px rgb(82, 99, 199);
-  margin: 20px 5px; 
+  margin: 20px 5px;
   text-align: center;
   color: white;
+  text-transform: none;
 }
 
 .carousel-container {
@@ -62,13 +63,12 @@ video {
   color: white;
 }
 
-
 @media (max-width: 768px) {
   .content h1 {
     font-size: 3.5rem;
   }
-  
+
   .image-overlay-desc {
-    font-size: 1rem; 
+    font-size: 1rem;
   }
 }
