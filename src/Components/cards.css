@@ -31,7 +31,7 @@ h1 {
   border: solid 1px hsl(180, 93%, 40%);
   background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
+}
 .eventsCard,
 .eventCardInfo {
   flex: 0 0 auto;
