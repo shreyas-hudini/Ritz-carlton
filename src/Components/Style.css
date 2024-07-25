@@ -8,9 +8,15 @@
 }
 
 .buttons {
-  display: flex;
-  align-items: center;
+ text-align: center;
+ background-color: burlywood;
+ padding: 2%;
+ position:sticky;
 }
+
+/* .checkInBtn {
+  padding: 20%;
+} */
 
 .form {
   display: flex;
