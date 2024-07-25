@@ -31,14 +31,20 @@ h1 {
   border: solid 1px hsl(180, 93%, 40%);
   background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+.eventsCard,
+.eventCardInfo {
+  flex: 0 0 auto;
+  margin: 0 10px;
+  padding: 20px;
   scroll-snap-align: start;
 }
 
 .eventsCard {
   position: relative;
   width: 200px;
-  height: 300px; 
-  transition: transform 0.3s ease; 
+  height: 300px;
+  transition: transform 0.3s ease;
 }
 
 .eventCardInfo {
@@ -46,7 +52,7 @@ h1 {
   bottom: 10%;
   left: -2%;
   width: 80%;
-  transition: transform 0.3s ease; 
+  transition: transform 0.3s ease;
 }
 
 .eventsCard img {
@@ -55,15 +61,15 @@ h1 {
   object-fit: cover;
   border-radius: 8px;
   filter: brightness(80%);
-  transition: filter 0.3s ease; 
+  transition: filter 0.3s ease;
 }
 
 .eventsCard:hover img {
-  filter: brightness(100%); 
+  filter: brightness(100%);
 }
 
 .eventsCard:hover .eventCardInfo {
-  transform: translateY(-10px); 
+  transform: translateY(-10px);
 }
 
 .eventContent {
@@ -72,48 +78,28 @@ h1 {
 
 .eventCardInfo h2 {
   margin-bottom: 5px;
-<<<<<<< HEAD
-  color: hsl(180, 93%, 40%);
-  /* font-family: "Nunito Sans", sans-serif; */
-=======
   font-weight: 600;
   font-family: "Roboto Mono", monospace;
   color: azure;
   font-size: 18.5px;
->>>>>>> 697bda41e8d2529b82d565316a63df8613cf3271
 }
 
 .eventCardInfo p {
   margin: 0;
-<<<<<<< HEAD
-  font-size: 14px;
-  color: hsl(180, 93%, 40%);
-}
-.thingsGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-gap: 5%;
-  /* width: 70%; */
-}
-
-=======
   color: azure;
   font-size: 12px;
   font-weight: 400;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
 }
 
-
 .thingsSquare {
-  display: flex; 
-  flex-wrap: wrap; 
-  justify-content: space-around; 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   margin: 5% 20%;
 }
 
-
-.thingsToDo h1{
+.thingsToDo h1 {
   font-size: 38px;
   text-transform: uppercase;
   font-weight: 300;
@@ -124,12 +110,11 @@ h1 {
   letter-spacing: -1px;
 }
 
-
 .thingsCard {
   position: relative;
   width: 350px;
   height: 300px;
-  margin-bottom: 30px; 
+  margin-bottom: 30px;
 }
 
 .thingsCard img {
@@ -138,7 +123,7 @@ h1 {
   object-fit: cover;
   border-radius: 8px;
   filter: brightness(80%);
-  transition: filter 0.3s ease; 
+  transition: filter 0.3s ease;
 }
 
 .thingsContent {
@@ -153,7 +138,7 @@ h1 {
 }
 
 .thingsContent h2 {
-  color: white; 
+  color: white;
   font-weight: 600;
   font-family: "Roboto Mono", monospace;
   font-size: 24px;
@@ -163,14 +148,13 @@ h1 {
 }
 
 .thingsCard:hover img {
-  filter: brightness(100%); 
+  filter: brightness(100%);
 }
 
 .thingsCard:hover .thingsContent h2 {
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
->>>>>>> 697bda41e8d2529b82d565316a63df8613cf3271
 .diningCards {
   display: flex;
   overflow-x: auto;
