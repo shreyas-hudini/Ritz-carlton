@@ -31,7 +31,7 @@ h1 {
   border: solid 1px hsl(180, 93%, 40%);
   background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
+}
 .eventsCard,
 .eventCardInfo {
   flex: 0 0 auto;
@@ -78,8 +78,8 @@ h1 {
 
 .eventCardInfo h2 {
   margin-bottom: 5px;
-  font-weight: 600;
-  font-family: "Roboto Mono", monospace;
+  font-weight: 800;
+  font-family: "Playwrite AU NSW", cursive;
   color: azure;
   font-size: 18.5px;
 }
@@ -102,9 +102,8 @@ h1 {
 .thingsToDo h1 {
   font-size: 38px;
   text-transform: uppercase;
-  font-weight: 300;
-  font-family: "Roboto Mono", monospace;
-  color: black;
+  font-weight: 100;
+  font-family: "Outfit", sans-serif;
   text-align: center;
   margin-top: 10%;
   letter-spacing: -1px;
@@ -140,7 +139,7 @@ h1 {
 .thingsContent h2 {
   color: white;
   font-weight: 600;
-  font-family: "Roboto Mono", monospace;
+  font-family: "Playwrite AU NSW", cursive;
   font-size: 24px;
   text-align: center;
   transition: transform 0.3s ease;
@@ -164,6 +163,7 @@ h1 {
   padding: 20px;
   margin-left: 8rem;
   margin-right: 8rem;
+  font-family: "Playwrite AU NSW", cursive;
 }
 
 .diningCards::-webkit-scrollbar {
@@ -181,19 +181,32 @@ h1 {
 
 .contentCard {
   position: relative;
-  padding: 20px;
-  bottom: 99px;
-  background-color: rgba(192, 166, 166, 0.7);
-  /* box-shadow: 5px; */
-  border-radius: 10px;
-  padding: 29px 10px;
-  z-index: 1;
-  width: 250px;
-  height: 143px;
-  left: 5%;
-  margin-right: 2rem;
-  text-align: center;
-}
+  padding: 20px; 
+    bottom: 99px;
+    background-color: rgba(239, 239, 239, 0.7);
+    /* box-shadow: 5px; */
+    border-radius: 10px;
+    padding: 29px 10px;
+    z-index: 1;
+    width: 250px;
+    height: 143px;
+    left: 5%; 
+    margin-right: 2rem;
+    text-align: center;
+    font-family: "Playwrite AU NSW", cursive;
+    h3{
+      font-family: "Outfit", sans-serif;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+    p{
+      font-family: "Outfit", sans-serif;
+      margin-top: 10px;
+      font-weight: 200;
+    }
+} 
+
+
 
 .cardContents {
   color: black;
@@ -247,6 +260,27 @@ h1 {
   width: 300px;
 }
 
-.diningCardsContainer {
+.diningCardsContainer h1,
+.diningCardsContainer h2 {
   text-align: center;
+  font-family: "Outfit", sans-serif;
+  font-weight: 100;
+  font-size: 38px;
+  margin-bottom: 3%;
+}
+
+
+@media (max-width: 480px) {
+  .buttons {
+    margin-left: 70%;
+  }
+
+  .diningCards {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+  .spaCards {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
 }
