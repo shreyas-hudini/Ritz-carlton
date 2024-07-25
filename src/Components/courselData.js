@@ -1,20 +1,15 @@
-export const images = [
+
+export const textItems = [
   {
-    url: "https://videos.pexels.com/video-files/4069480/4069480-uhd_2560_1440_25fps.mp4",
-    heading: "The Ritz-Carlton Kyoto",
     description:
-      "Welcome to your gateway to extraordinary experiences. Immerse yourself in elegance, relaxation, and impeccable service – your dream stay awaits.",
+      "Steeped in history and honed by five-star luxury and service, The Ritz-Carlton, Kyoto expresses the culture of Kyoto, Japan in a language of thoughtful details. This begins upon arrival at the hotel, when check-in is conducted over traditional Japanese tea.The immaculately designed hotel rooms and suites at The Ritz-Carlton, Kyoto, feature spacious layouts and gorgeously realized details.",
   },
-  // {
-  //   url: "https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  //   heading: "Hotel Two",
-  // },
-  // {
-  //   url: "https://images.pexels.com/photos/632522/pexels-photo-632522.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  //   heading: "Hotel Three",
-  // },
-  // {
-  //   url: "https://images.pexels.com/photos/777059/pexels-photo-777059.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  //   heading: "Hotel Four",
-  // },
-];
+  {
+    description:
+    "It continues with the 409 pieces of modern Japanese artwork on display throughout the hotel, and with the signature cuisine and cultural experiences on offer.Showcasing both Japanese and Western cuisine, The Ritz-Carlton, Kyoto, our luxury hotel in Kyoto, Japan, transcends the art of fine dining to unprecedented new heights."
+  },
+  {
+    description:
+      "Discover a home away from home where every detail is designed to indulge and delight. Your perfect getaway starts here. Escape to a sanctuary of comfort and luxury. Experience hospitality redefined, where every stay is an unforgettable journey.Welcome to your gateway to extraordinary experiences. Immerse yourself in elegance, relaxation, and impeccable service",
+  },
+]; 
