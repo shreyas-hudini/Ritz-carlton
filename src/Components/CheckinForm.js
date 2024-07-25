@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import { Drawer, Button, FormControl, Select, InputLabel } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
@@ -7,15 +7,17 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { TimePicker } from "@mui/x-date-pickers";
-import {useDispatch,useSelector} from react-redux
-import { submitForm } from "../actions/formactions";
+import { useSelector, useDispatch } from "react-redux";
+import { formSubmit } from "../reducers/submitSlice";
+import dayjs from "dayjs"
 
 const CheckinForm = ({ onSignIn }) => {
   const [isOpen, setIsOpen] = useState(false);
- const dispatch = useDispatch();
- const formData = useSelector(state=>state.form.formData)
+  const dispatch = useDispatch();
+  const formData = useSelector((state) => state.form.formData);
+  
+  console.log(formData);
 
-  localStorage.setItem("formData", JSON.stringify(formData));
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -23,23 +25,24 @@ const CheckinForm = ({ onSignIn }) => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    dispatch(submitForm({
-      ...formData,
-      [name]: value,
-    }));
+    dispatch(
+      formSubmit({
+        ...formData,
+        [name]: value,
+      })
+    );
   };
 
   const handleDateChange = (value, field) => {
-    dispatch(submitForm({
-      ...formData,
-      [field]: value,
-    }));
+    dispatch(
+      formSubmit({
+        ...formData,
+        [field]: value,
+      })
+    );
   };
-
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Example validation logic
     if (
       formData.firstname &&
       formData.lastname &&
@@ -49,14 +52,14 @@ const CheckinForm = ({ onSignIn }) => {
       formData.arrival &&
       formData.nationality
     ) {
-      onSignIn(); // Call the onSignIn function passed from parent
+      onSignIn();
     } else {
       alert("Please fill in all fields");
     }
   };
-  console.log(localStorage);
   return (
     <>
+    {!isOpen && (
       <div className="buttons">
         <Button
           sx={{
@@ -70,6 +73,7 @@ const CheckinForm = ({ onSignIn }) => {
           Checkin
         </Button>
       </div>
+    )}
       <Drawer
         className="Hamburger"
         anchor="bottom"
@@ -112,7 +116,7 @@ const CheckinForm = ({ onSignIn }) => {
               name="gender"
               value={formData.gender}
               onChange={handleInputChange}
-              helperText="Please Select your Gender"
+              helpertext="Please Select your Gender"
             >
               <MenuItem value={"male"}>Male</MenuItem>
               <MenuItem value={"female"}>Female</MenuItem>
@@ -132,7 +136,7 @@ const CheckinForm = ({ onSignIn }) => {
               name="nationality"
               value={formData.nationality}
               onChange={handleInputChange}
-              helperText="Please Select your Nationality"
+              helpertext="Please Select your Nationality"
             >
               <MenuItem value={"Indian"}>Indian</MenuItem>
               <MenuItem value={"USA"}>USA</MenuItem>
@@ -156,7 +160,7 @@ const CheckinForm = ({ onSignIn }) => {
             <DemoContainer components={["DatePicker"]}>
               <DatePicker
                 label="Select Date of Birth"
-                value={formData.dob}
+                value={formData.dob ? dayjs(formData.dob) : null}
                 onChange={(value) => handleDateChange(value, "dob")}
               />
             </DemoContainer>
@@ -166,7 +170,7 @@ const CheckinForm = ({ onSignIn }) => {
             <DemoContainer components={["TimePicker"]}>
               <TimePicker
                 label="Select Arrival Time"
-                value={formData.arrival}
+                value={formData.arrival ? dayjs(formData.arrival) : null}
                 onChange={(value) => handleDateChange(value, "arrival")}
               />
             </DemoContainer>

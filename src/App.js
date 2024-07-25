@@ -9,11 +9,10 @@ const App = () => {
   const [signedIn, setSignedIn] = useState(false);
 
   const handleSignIn = () => {
-    // Example function to handle sign-in action
-    // You may replace this with actual authentication logic
+    
     setSignedIn(true);
   };
-
+  console.log(signedIn);
   return (
     <div className="App">
       {signedIn ? (
