@@ -5,6 +5,7 @@ import Cards from "./Components/Cards";
 import ThingsCard from "./Components/ThingsCard";
 import HotelCard from "./Components/HotelCard";
 import HamburgerMenu from "./Components/Hamburger";
+import HotelDesc from "./Components/HotelDesc";
 
 const App = () => {
   const [signedIn, setSignedIn] = useState(false);
@@ -21,7 +22,9 @@ const App = () => {
         <>
           <Carousel />
           <HotelCard/>
+          <HotelDesc/>
           <Cards />
+         
           <ThingsCard />
           <HamburgerMenu></HamburgerMenu>
         </>
@@ -29,7 +32,9 @@ const App = () => {
         <>
           <Carousel />
           <HotelCard/>
+          <HotelDesc/>
           <Cards />
+         
           <ThingsCard />
           <CheckinForm onSignIn={handleSignIn} />
         </>
