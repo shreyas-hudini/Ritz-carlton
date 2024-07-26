@@ -21,6 +21,7 @@ const App = () => {
           <Carousel />
           <HotelCard />
           <Cards />
+         
           <ThingsCard />
           <DiningAndSpa />
           <HamburgerMenu></HamburgerMenu>
@@ -30,6 +31,7 @@ const App = () => {
           <Carousel />
           <HotelCard />
           <Cards />
+         
           <ThingsCard />
           <CheckinForm onSignIn={handleSignIn} />
         </>
