@@ -10,4 +10,4 @@ function HotelDesc() {
   )
 }
 
-export default HotelDesc
+export default HotelDesc;

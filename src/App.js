@@ -11,8 +11,6 @@ const App = () => {
   const [signedIn, setSignedIn] = useState(false);
 
   const handleSignIn = () => {
-    // Example function to handle sign-in action
-    // You may replace this with actual authentication logic
     setSignedIn(true);
   };
 
@@ -23,6 +21,7 @@ const App = () => {
           <Carousel />
           <HotelCard />
           <Cards />
+         
           <ThingsCard />
           <DiningAndSpa />
           <HamburgerMenu></HamburgerMenu>
@@ -32,6 +31,7 @@ const App = () => {
           <Carousel />
           <HotelCard />
           <Cards />
+         
           <ThingsCard />
           <FormComponent onSignIn={handleSignIn} />
         </>

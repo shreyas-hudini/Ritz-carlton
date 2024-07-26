@@ -14,6 +14,9 @@
     font-size: 18px;
    
 }
+.hotel-desc button:hover{
+  scale: 0.1;
+}
 .hotel-desc{
     text-align: center;
     padding: 5%;
