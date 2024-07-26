@@ -48,4 +48,46 @@
     display: none;
   }
     /* width: 70%; */
+
+    .btnCheckIn {
+      position: absolute;
+      top: 10px;
+      background: none;
+      margin: 3%;
+      Button{
+        background-color: rgb(255, 255, 255);
+        color: black;
+      }
+    }
+    /* .buttonsCheckIn > Button{
+      background: none;
+      color: brown;
+    } */
+     
+    .buttons::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+      z-index: 1;
+    }
+     
+    .buttons > * {
+      position: relative;
+      z-index: 2;
+    }
+    .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper.MuiMenu-paper.MuiMenu-paper.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
+     
+      left: 399px !important;
+  }
+  .GenderNationality{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+ .MuiFormControl-root.MuiFormControl-fullWidth.css-q8hpuo-MuiFormControl-root {
+  padding: 10px;
+ }
  

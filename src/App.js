@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CheckinForm from "./Components/CheckinForm";
+import FormComponent from "./Components/CheckinForm";
 import Carousel from "./Components/Carousel";
 import Cards from "./Components/Cards";
 import ThingsCard from "./Components/ThingsCard";
@@ -33,7 +33,7 @@ const App = () => {
           <HotelCard />
           <Cards />
           <ThingsCard />
-          <CheckinForm onSignIn={handleSignIn} />
+          <FormComponent onSignIn={handleSignIn} />
         </>
       )}
     </div>
