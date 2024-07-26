@@ -1,6 +1,5 @@
 import React from "react";
 import Stack from "@mui/material/Stack";
-import HamburgerMenu from "./Hamburger";
 import CheckinForm from "./CheckinForm";
 
 function Checkin() {
