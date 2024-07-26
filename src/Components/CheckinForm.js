@@ -18,7 +18,6 @@ const CheckinForm = ({ onSignIn }) => {
   
   console.log(formData);
 
-
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -82,7 +81,9 @@ const CheckinForm = ({ onSignIn }) => {
       >
         <form onSubmit={handleSubmit}>
           <TextField
-            sx={{ mt: 2 }}
+            sx={{ mt: 2,
+
+            }}
             className="textfield"
             required
             id="firstname"
