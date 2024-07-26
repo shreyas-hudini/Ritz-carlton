@@ -32,14 +32,6 @@
   transition: transform 0.3s ease; 
 }
 
-.eventCardInfo {
-  position: absolute;
-  bottom: 10%;
-  left: -2%;
-  width: 80%;
-  transition: transform 0.3s ease; 
-}
-
 .eventsCard img {
   width: 100%;
   height: 100%;
@@ -53,12 +45,29 @@
   filter: brightness(100%); 
 }
 
-.eventsCard:hover .eventCardInfo {
-  transform: translateY(-10px); 
+.eventContent {
+  position: absolute;
+  bottom: 6%;
+  width: 83%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  box-sizing: border-box;
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
 }
 
-.eventContent {
-  margin-top: 10px;
+.eventsCard.active .eventContent {
+  transform: translateY(0);
+}
+
+
+.eventCardInfo {
+  position: absolute;
+  bottom: 10%;
+  left: -2%;
+  width: 80%;
+  transition: transform 0.3s ease; 
 }
 
 .eventCardInfo h2 {
@@ -262,11 +271,7 @@
 }
 
 
-@media (max-width: 480px) {
-  .buttons {
-    margin-left: 70%;
-  }
-
+@media (max-width: 480px){
   .diningCards {
     margin-left: 2rem;
     margin-right: 2rem;

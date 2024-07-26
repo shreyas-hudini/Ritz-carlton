@@ -55,7 +55,7 @@ const CheckinForm = ({ onSignIn }) => {
     ) {
       onSignIn(); // Call the onSignIn function passed from parent
     } else {
-      alert("Please fill in all fields");
+      alert("Please fill in all field");
     }
   };
   console.log(localStorage);
