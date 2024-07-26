@@ -1,8 +1,9 @@
-import React from "react";
-import HotelDesc from "./HotelDesc";
+import React, { useState } from "react";
 import "./hotelCard.css";
 
 function HotelCard() {
+  const [activeIndex, setActiveIndex] = useState(null);
+
   const eventData = [
     {
       bgImage:
@@ -42,17 +43,27 @@ function HotelCard() {
     },
   ];
 
+  const handleClick = (index) => {
+    setActiveIndex(index === activeIndex ? null : index);
+  };
+
   return (
     <div className="eventContainer">
       <h2>Welcome to</h2>
       <h1>Raffles Hotels & Resorts</h1>
       <div className="eventRow">
         {eventData.map((details, index) => (
-          <div key={index} className="eventsCard hotelCard">
+          <div
+            key={index}
+            className={`eventsCard hotelCard ${activeIndex === index ? "active" : ""}`}
+            onClick={() => handleClick(index)}
+          >
             <img src={details.bgImage} alt={details.title} />
-            <div className="eventContent">
-              <p>{details.title}</p>
-            </div>
+            {activeIndex === index && (
+              <div className="eventContent">
+                <p>{details.title}</p>
+              </div>
+            )}
           </div>
         ))}
       </div>
