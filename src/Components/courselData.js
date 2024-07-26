@@ -1,14 +1,14 @@
 export const textItems = [
   {
     description:
-      "Steeped in history and honed by five-star luxury and service, The Ritz-Carlton, Kyoto expresses the culture of Kyoto, Japan in a language of thoughtful details.",
+      "Unparalleled luxury and service, elegantly reflecting the city's culture through meticulously curated details.",
   },
   {
     description:
-      "It continues with the 409 pieces of modern Japanese artwork on display throughout the hotel, and with the signature cuisine and cultural experiences on offer.",
+      "Signature cuisine and cultural experiences on offer.Showcasing both Japanese and Western cuisine.",
   },
   {
     description:
-      "Discover a home away from home where every detail is designed to indulge and delight. Your perfect getaway starts here. Escape to a sanctuary of comfort and luxury. Experience hospitality redefined, where every stay is an unforgettable journey.",
+      "Your perfect getaway ,experience hospitality redefined, where every stay is an unforgettable journey.",
   },
 ];
