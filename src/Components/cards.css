@@ -5,6 +5,10 @@
   margin-bottom: 0;
 }
 
+.eventCardInfo:hover {
+  transform: translateY(-10px);
+}
+
 .eventRow {
   display: flex;
   overflow-x: auto;
@@ -41,6 +45,7 @@ h1 {
   width: 200px;
   height: 300px;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .eventsCard img {
@@ -97,10 +102,12 @@ h1 {
 }
 
 .thingsSquare {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin: 5% 20%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+
+  margin: 0% 8% 0% 12%;
+  padding: 0%;
 }
 
 .thingsToDo h1 {
@@ -110,14 +117,16 @@ h1 {
   font-family: "Outfit", sans-serif;
   text-align: center;
   margin-top: 10%;
+  margin-bottom: 5%;
   letter-spacing: -1px;
 }
 
 .thingsCard {
   position: relative;
-  width: 350px;
-  height: 300px;
-  margin-bottom: 30px;
+  width: 250px;
+  height: 200px;
+  margin-bottom: 47px;
+  cursor: pointer;
 }
 
 .thingsCard img {
@@ -144,7 +153,7 @@ h1 {
   color: white;
   font-weight: 600;
   font-family: "Playwrite AU NSW", cursive;
-  font-size: 24px;
+  font-size: 18px;
   text-align: center;
   transition: transform 0.3s ease;
   margin: 0;
@@ -158,44 +167,18 @@ h1 {
   transform: scale(1.1);
 }
 
-.diningCards {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  padding: 20px;
-  margin-left: 8rem;
-  margin-right: 8rem;
-  font-family: "Playwrite AU NSW", cursive;
-}
-
-.diningCards::-webkit-scrollbar {
-  display: none;
-}
-
-.diningCard {
-  flex: 0 0 auto;
-  margin-right: 20px;
-  border-radius: 10px;
-  overflow: hidden;
-  scroll-snap-align: start;
-  width: 300px;
-}
-
 .contentCard {
   position: relative;
   padding: 20px;
   bottom: 99px;
   background-color: rgba(239, 239, 239, 0.7);
-  /* box-shadow: 5px; */
   border-radius: 10px;
   padding: 29px 10px;
   z-index: 1;
   width: 250px;
   height: 143px;
   left: 5%;
-  margin-right: 2rem;
+  margin-right: 4rem;
   text-align: center;
   font-family: "Playwrite AU NSW", cursive;
   h3 {
@@ -238,7 +221,7 @@ h1 {
   margin-right: 2rem;
 }
 
-.spaCards {
+.diningAndSpaCards {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -249,23 +232,14 @@ h1 {
   margin-right: 8rem;
 }
 
-.spaCards::-webkit-scrollbar {
+.diningAndSpaCards::-webkit-scrollbar {
   display: none;
 }
 
-.spaCard {
-  flex: 0 0 auto;
-  margin-right: 20px;
-  border-radius: 10px;
-  overflow: hidden;
-  scroll-snap-align: start;
-  width: 300px;
-}
-
-.diningCardsContainer h1,
-.diningCardsContainer h2 {
+.categoryCardsContainer h2 {
   text-align: center;
   font-family: "Outfit", sans-serif;
+  text-transform: uppercase;
   font-weight: 100;
   font-size: 38px;
   margin-bottom: 3%;
@@ -276,8 +250,34 @@ h1 {
     margin-left: 2rem;
     margin-right: 2rem;
   }
-  .spaCards {
+  .diningAndSpaCards {
     margin-left: 2rem;
     margin-right: 2rem;
   }
+  .thingsSquare {
+    /* background-color: chocolate; */
+    margin: 0% 18% 0% 12%;
+    /* overflow-wrap: normal; */
+  }
+  .thingsCard {
+    width: 160px;
+    height: 160px;
+    margin: 1% 2% 4% 2%;
+  }
+  .thingsCard img {
+    margin: 7% 2%;
+  }
+
+  .thingsContent h2 {
+    font-size: 16px;
+    text-align: start;
+  }
+  .thingsContent {
+    width: 70%;
+    height: 70%;
+    display: flex;
+    align-items: start;
+  }
 }
+
+/* @media (min-width: 250px) and (max-width: 737px) {} */

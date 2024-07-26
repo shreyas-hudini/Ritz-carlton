@@ -1,192 +1,225 @@
 import React, { useState } from "react";
-import { Drawer, Button, FormControl, Select, InputLabel } from "@mui/material";
-import TextField from "@mui/material/TextField";
-import MenuItem from "@mui/material/MenuItem";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  TextField,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Button,
+  Box,
+  Drawer,
+  Typography,
+  IconButton,
+} from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+import {
+  LocalizationProvider,
+  DatePicker,
+  TimePicker,
+} from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { TimePicker } from "@mui/x-date-pickers";
+import { setField } from "../redux/formSlice";
 
-const CheckinForm = ({ onSignIn }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    firstname: "",
-    lastname: "",
-    gender: "",
-    number: "",
-    dob: null,
-    arrival: null,
-    nationality: "",
-  });
+const FormComponent = ({ onSignIn }) => {
+  const dispatch = useDispatch();
+  const formData = useSelector((state) => state.form);
 
-  localStorage.setItem("formData", JSON.stringify(formData));
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    dispatch(setField({ field: name, value }));
   };
 
-  const handleDateChange = (value, field) => {
-    setFormData({
-      ...formData,
-      [field]: value,
-    });
+  const handleDateChange = (date, field) => {
+    dispatch(setField({ field, value: date }));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Example validation logic
-    if (
-      formData.firstname &&
-      formData.lastname &&
-      formData.gender &&
-      formData.number &&
-      formData.dob &&
-      formData.arrival &&
-      formData.nationality
-    ) {
-      onSignIn(); // Call the onSignIn function passed from parent
-    } else {
-      alert("Please fill in all field");
-    }
+    console.log("Form submitted", formData);
+    setDrawerOpen(false);
+    onSignIn(true);
   };
-  console.log(localStorage);
+
+  const toggleDrawer = () => {
+    setDrawerOpen(!drawerOpen);
+  };
+
   return (
     <>
-      <div className="buttons">
+      <div className="btnCheckIn">
         <Button
           sx={{
-            backgroundColor: "white",
-            color: "black",
+            backgroundColor: "#007bff",
+            color: "#ffffff",
+            "&:hover": {
+              backgroundColor: "#0056b3",
+            },
+            borderRadius: 2,
+            boxShadow: 2,
           }}
-          onClick={toggleMenu}
           variant="contained"
-          color="primary"
+          onClick={toggleDrawer}
         >
           Checkin
         </Button>
       </div>
       <Drawer
-        className="Hamburger"
         anchor="bottom"
-        open={isOpen}
-        onClose={toggleMenu}
+        open={drawerOpen}
+        onClose={toggleDrawer}
+        sx={{
+          ".MuiDrawer-paper": {
+            height: "auto",
+            maxHeight: "80vh",
+            borderTopLeftRadius: 16,
+            borderTopRightRadius: 16,
+          },
+        }}
       >
-        <form onSubmit={handleSubmit}>
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 2,
+            width: 500,
+            maxWidth: 600,
+            mx: "auto",
+            p: 3,
+            borderRadius: 2,
+            boxShadow: 3,
+            bgcolor: "#f5f5f5",
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              mb: 2,
+            }}
+          >
+            <Typography variant="h6">Checkin Form</Typography>
+            <IconButton onClick={toggleDrawer} sx={{ color: "#007bff" }}>
+              <CloseIcon />
+            </IconButton>
+          </Box>
           <TextField
-            sx={{ mt: 2 }}
-            className="textfield"
             required
             id="firstname"
             name="firstname"
-            label="FirstName"
+            label="First Name"
             variant="outlined"
             value={formData.firstname}
             onChange={handleInputChange}
+            fullWidth
+            sx={{ bgcolor: "#ffffff" }}
           />
           <TextField
-            sx={{ mt: 2 }}
-            className="textfield"
             required
             id="lastname"
             name="lastname"
-            label="LastName"
+            label="Last Name"
             variant="outlined"
             value={formData.lastname}
             onChange={handleInputChange}
+            fullWidth
+            sx={{ bgcolor: "#ffffff" }}
           />
-          <FormControl fullWidth>
-            <InputLabel sx={{ mt: 1 }} id="gender-label">
-              Gender
-            </InputLabel>
-            <Select
-              required
-              sx={{ mt: 2 }}
-              className="textfield"
-              labelId="gender-label"
-              id="gender"
-              name="gender"
-              value={formData.gender}
-              onChange={handleInputChange}
-              helperText="Please Select your Gender"
-            >
-              <MenuItem value={"male"}>Male</MenuItem>
-              <MenuItem value={"female"}>Female</MenuItem>
-              <MenuItem value={"preferNotToSay"}>Prefer Not to say</MenuItem>
-            </Select>
-          </FormControl>
-          <FormControl>
-            <InputLabel sx={{ mt: 1 }} id="nationality-label">
-              Nationality
-            </InputLabel>
-            <Select
-              required
-              className="textfield"
-              sx={{ mt: 2 }}
-              labelId="nationality-label"
-              id="nationality"
-              name="nationality"
-              value={formData.nationality}
-              onChange={handleInputChange}
-              helperText="Please Select your Nationality"
-            >
-              <MenuItem value={"Indian"}>Indian</MenuItem>
-              <MenuItem value={"USA"}>USA</MenuItem>
-              <MenuItem value={"French"}>French</MenuItem>
-            </Select>
-          </FormControl>
+          <div className="GenderNationality">
+            <FormControl fullWidth>
+              <InputLabel id="gender-label">Gender</InputLabel>
+              <Select
+                required
+                labelId="gender-label"
+                id="gender"
+                name="gender"
+                value={formData.gender}
+                onChange={handleInputChange}
+                label="Gender"
+                sx={{ bgcolor: "#ffffff" }}
+              >
+                <MenuItem value="male">Male</MenuItem>
+                <MenuItem value="female">Female</MenuItem>
+                <MenuItem value="preferNotToSay">Others </MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl fullWidth>
+              <InputLabel id="nationality-label">Nationality</InputLabel>
+              <Select
+                required
+                labelId="nationality-label"
+                id="nationality"
+                name="nationality"
+                value={formData.nationality}
+                onChange={handleInputChange}
+                label="Nationality"
+                sx={{ bgcolor: "#ffffff" }}
+              >
+                <MenuItem value="Indian">Indian</MenuItem>
+                <MenuItem value="USA">USA</MenuItem>
+                <MenuItem value="French">French</MenuItem>
+              </Select>
+            </FormControl>
+          </div>
           <TextField
             required
-            sx={{ mt: 2 }}
-            className="textfield"
-            type="number"
             id="number"
             name="number"
-            label="PhoneNumber"
+            label="Phone Number"
+            type="number"
             variant="outlined"
             value={formData.number}
             onChange={handleInputChange}
+            fullWidth
+            sx={{ bgcolor: "#ffffff" }}
           />
-
           <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DemoContainer components={["DatePicker"]}>
-              <DatePicker
-                label="Select Date of Birth"
-                value={formData.dob}
-                onChange={(value) => handleDateChange(value, "dob")}
-              />
-            </DemoContainer>
+            <DatePicker
+              label="Select Date of Birth"
+              value={formData.dob}
+              onChange={(value) => handleDateChange(value, "dob")}
+              renderInput={(params) => (
+                <TextField {...params} fullWidth sx={{ bgcolor: "#ffffff" }} />
+              )}
+            />
           </LocalizationProvider>
-
           <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DemoContainer components={["TimePicker"]}>
-              <TimePicker
-                label="Select Arrival Time"
-                value={formData.arrival}
-                onChange={(value) => handleDateChange(value, "arrival")}
-              />
-            </DemoContainer>
+            <TimePicker
+              label="Select Arrival Time"
+              value={formData.arrival}
+              onChange={(value) => handleDateChange(value, "arrival")}
+              renderInput={(params) => (
+                <TextField {...params} fullWidth sx={{ bgcolor: "#ffffff" }} />
+              )}
+            />
           </LocalizationProvider>
-          <Button
-            sx={{ mt: 2, mb: 2, justifyContent: "center" }}
-            type="submit"
-            variant="contained"
-            color="primary"
-          >
-            Submit
-          </Button>
-        </form>
+          <div className="buttonCeckIn">
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              sx={{
+                mt: 2,
+                borderRadius: 2,
+                boxShadow: 2,
+                backgroundColor: "#007bff",
+                "&:hover": {
+                  backgroundColor: "#0056b3",
+                },
+              }}
+            >
+              Submit
+            </Button>
+          </div>
+        </Box>
       </Drawer>
     </>
   );
 };
 
-export default CheckinForm;
+export default FormComponent;
