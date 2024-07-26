@@ -21,6 +21,7 @@ function HamburgerMenu() {
           sx={{ backgroundColor: "white", color: "black" }}
           onClick={toggleMenu}
           variant="contained"
+          size="small"
         >
           <MenuIcon />
         </Button>

@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import CheckinForm from './Components/CheckinForm';
-import Carousel from './Components/Carousel';
-import Cards from './Components/Cards';
-import ThingsCard from './Components/ThingsCard';
-import HotelCard from './Components/HotelCard';
-import HamburgerMenu from './Components/Hamburger';
-import DiningAndSpa from './Components/DiningAndSpa';
+import React, { useState } from "react";
+import CheckinForm from "./Components/CheckinForm";
+import Carousel from "./Components/Carousel";
+import Cards from "./Components/Cards";
+import ThingsCard from "./Components/ThingsCard";
+import HotelCard from "./Components/HotelCard";
+import HamburgerMenu from "./Components/Hamburger";
+import DiningAndSpa from "./Components/DiningAndSpa";
 
 const App = () => {
   const [signedIn, setSignedIn] = useState(false);
@@ -23,8 +23,8 @@ const App = () => {
           <HotelCard />
           <Cards />
           <ThingsCard />
-          <HamburgerMenu></HamburgerMenu>
           <DiningAndSpa />
+          <HamburgerMenu></HamburgerMenu>
         </>
       ) : (
         <>
