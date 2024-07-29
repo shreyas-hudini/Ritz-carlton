@@ -130,7 +130,7 @@ export default function ThingsCard() {
                 src={selectedRelatedImages[currentIndex].url}
                 alt={selectedRelatedImages[currentIndex].head}
               />
-              {/* <p>{selectedRelatedImages[currentIndex].head}</p> */}
+              <p>{selectedRelatedImages[currentIndex].head}</p>
             </div>
             <button className="nextBtn" onClick={nextImage}>
               ❯
