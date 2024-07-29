@@ -22,20 +22,20 @@ import {
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { setField } from "../redux/formSlice";
 import dayjs from 'dayjs';
-
+ 
 const FormComponent = ({ onSignIn }) => {
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.form);
-
+ 
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [errors, setErrors] = useState({});
-
+ 
   const validateForm = () => {
     const newErrors = {};
     const phoneRegex = /^\s*(?:\+?(\d{1,3}))?[-.\s()]*(\d{3})[-.\s()]*(\d{3})[-.\s()]*(\d{4})(?:\s*x(\d+))?\s*$/;
     const nameRegex = /^[a-zA-Z\s]*$/;
 const currentDate = new Date();
-    
+   
     if (!formData.firstname ) {
       newErrors.firstname = "First name is required";
     }
@@ -63,20 +63,20 @@ const currentDate = new Date();
     if (!formData.arrival) {
       newErrors.arrival = "Arrival time is required";
     }
-
+ 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
+ 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     dispatch(setField({ field: name, value }));
   };
-
+ 
   const handleDateChange = (date, field) => {
     dispatch(setField({ field, value: date }));
   };
-
+ 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validateForm()) {
@@ -89,11 +89,11 @@ const currentDate = new Date();
       }
     }
   };
-
+ 
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
   };
-
+ 
   return (
     <>
       <div className="btnCheckIn">
@@ -281,5 +281,5 @@ const currentDate = new Date();
     </>
   );
 };
-
+ 
 export default FormComponent;
