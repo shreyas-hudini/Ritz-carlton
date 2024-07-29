@@ -11,7 +11,6 @@ import {
   Drawer,
   Typography,
   IconButton,
-  FormHelperText,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import {
@@ -21,79 +20,60 @@ import {
 } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { setField } from "../redux/formSlice";
-import dayjs from 'dayjs';
- 
+import { styled } from "@mui/system";
+
+const nameRegex = /^[a-zA-Z\s]*$/;
+// const currentDate = new Date();
+const firstName = document.getElementById("firstname");
+
+const CustomTextField = styled(TextField)({
+  "& input[type=number]": {
+    "-moz-appearance": "textfield",
+    "&::-webkit-outer-spin-button": {
+      "-webkit-appearance": "none",
+      margin: 0,
+    },
+    "&::-webkit-inner-spin-button": {
+      "-webkit-appearance": "none",
+      margin: 0,
+    },
+  },
+});
+
 const FormComponent = ({ onSignIn }) => {
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.form);
- 
+
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [errors, setErrors] = useState({});
- 
-  const validateForm = () => {
-    const newErrors = {};
-    const phoneRegex = /^\s*(?:\+?(\d{1,3}))?[-.\s()]*(\d{3})[-.\s()]*(\d{3})[-.\s()]*(\d{4})(?:\s*x(\d+))?\s*$/;
-    const nameRegex = /^[a-zA-Z\s]*$/;
-const currentDate = new Date();
-   
-    if (!formData.firstname ) {
-      newErrors.firstname = "First name is required";
-    }
-    if(!nameRegex.test(formData.firstname)){
-      newErrors.firstname = "Name should contain only alphabetic characters";
-    }
-    if (!formData.lastname) {
-      newErrors.lastname = "Last name is required";
-    }
-    if(!nameRegex.test(formData.lastname)){
-      newErrors.lastname = "Name should contain only alphabetic characters";
-    }
-    if (!formData.gender) {
-      newErrors.gender = "Gender is required";
-    }
-    if (!formData.nationality) {
-      newErrors.nationality = "Nationality is required";
-    }
-    if (!formData.number || !phoneRegex.test(formData.number) ) {
-      newErrors.number = "Valid phone number is required";
-    }
-    if (!formData.dob || dayjs(formData.dob).isAfter(dayjs())) {
-      newErrors.dob = "Date of birth is required and must be in the past";
-    }
-    if (!formData.arrival) {
-      newErrors.arrival = "Arrival time is required";
-    }
- 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
- 
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     dispatch(setField({ field: name, value }));
   };
- 
+
   const handleDateChange = (date, field) => {
     dispatch(setField({ field, value: date }));
   };
- 
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (validateForm()) {
-      try {
-        alert("You've successfully checked-in", formData);
-        setDrawerOpen(false);
-        onSignIn(true);
-      } catch (error) {
-        console.error("Form submission error", error);
-      }
+    if (!nameRegex.test(firstName)) {
+      alert("Name should contain only alphabetic characters");
+    } else {
+      // try {
+      alert("You've successfully checked-in", formData);
+      setDrawerOpen(false);
+      onSignIn(true);
+      // } catch (error) {
+      //   console.error("Form submission error", error);
+      // }
     }
   };
- 
+
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
   };
- 
+
   return (
     <>
       <div className="btnCheckIn">
@@ -170,8 +150,6 @@ const currentDate = new Date();
             onChange={handleInputChange}
             fullWidth
             sx={{ bgcolor: "#ffffff" }}
-            error={!!errors.firstname}
-            helperText={errors.firstname}
           />
           <TextField
             required
@@ -183,10 +161,8 @@ const currentDate = new Date();
             onChange={handleInputChange}
             fullWidth
             sx={{ bgcolor: "#ffffff" }}
-            error={!!errors.lastname}
-            helperText={errors.lastname}
           />
-          <FormControl fullWidth sx={{ bgcolor: "#ffffff" }} error={!!errors.gender}>
+          <FormControl fullWidth sx={{ bgcolor: "#ffffff" }}>
             <InputLabel id="gender-label">Gender</InputLabel>
             <Select
               fullWidth
@@ -202,9 +178,8 @@ const currentDate = new Date();
               <MenuItem value="female">Female</MenuItem>
               <MenuItem value="preferNotToSay">Others</MenuItem>
             </Select>
-            {errors.gender && <FormHelperText>{errors.gender}</FormHelperText>}
           </FormControl>
-          <FormControl fullWidth sx={{ bgcolor: "#ffffff" }} error={!!errors.nationality}>
+          <FormControl fullWidth sx={{ bgcolor: "#ffffff" }}>
             <InputLabel id="nationality-label">Nationality</InputLabel>
             <Select
               fullWidth
@@ -220,9 +195,8 @@ const currentDate = new Date();
               <MenuItem value="USA">USA</MenuItem>
               <MenuItem value="French">French</MenuItem>
             </Select>
-            {errors.nationality && <FormHelperText>{errors.nationality}</FormHelperText>}
           </FormControl>
-          <TextField
+          <CustomTextField
             required
             id="number"
             name="number"
@@ -233,17 +207,16 @@ const currentDate = new Date();
             onChange={handleInputChange}
             fullWidth
             sx={{ bgcolor: "#ffffff" }}
-            error={!!errors.number}
-            helperText={errors.number}
           />
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
               disableFuture
+              // minDate={new Date(1947, 12 - 1, 1)}
               label="Date of Birth"
               value={formData.dob}
               onChange={(value) => handleDateChange(value, "dob")}
               renderInput={(params) => (
-                <TextField {...params} fullWidth sx={{ bgcolor: "#ffffff" }} error={!!errors.dob} helperText={errors.dob} />
+                <TextField {...params} fullWidth sx={{ bgcolor: "#ffffff" }} />
               )}
             />
           </LocalizationProvider>
@@ -254,7 +227,7 @@ const currentDate = new Date();
               value={formData.arrival}
               onChange={(value) => handleDateChange(value, "arrival")}
               renderInput={(params) => (
-                <TextField {...params} fullWidth sx={{ bgcolor: "#ffffff" }} error={!!errors.arrival} helperText={errors.arrival} />
+                <TextField {...params} fullWidth sx={{ bgcolor: "#ffffff" }} />
               )}
             />
           </LocalizationProvider>
@@ -281,5 +254,5 @@ const currentDate = new Date();
     </>
   );
 };
- 
+
 export default FormComponent;
