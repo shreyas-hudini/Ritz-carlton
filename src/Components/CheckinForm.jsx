@@ -21,6 +21,10 @@ import {
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { setField } from "../redux/formSlice";
 
+const nameRegex = /^[a-zA-Z\s]*$/;
+// const currentDate = new Date();
+const firstName = document.getElementById("firstname");
+
 const FormComponent = ({ onSignIn }) => {
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.form);
@@ -38,12 +42,16 @@ const FormComponent = ({ onSignIn }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    try {
+    if (!nameRegex.test(firstName)) {
+      alert("Name should contain only alphabetic characters");
+    } else {
+      // try {
       alert("You've successfully checked-in", formData);
       setDrawerOpen(false);
       onSignIn(true);
-    } catch (error) {
-      console.error("Form submission error", error);
+      // } catch (error) {
+      //   console.error("Form submission error", error);
+      // }
     }
   };
 
