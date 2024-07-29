@@ -187,6 +187,8 @@ const FormComponent = ({ onSignIn }) => {
           />
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
+              disableFuture
+              // minDate={new Date(1947, 12 - 1, 1)}
               label="Date of Birth"
               value={formData.dob}
               onChange={(value) => handleDateChange(value, "dob")}
