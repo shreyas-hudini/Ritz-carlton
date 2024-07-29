@@ -16,11 +16,11 @@ export default function ThingsCard() {
           url: "https://cdn.pixabay.com/photo/2017/06/15/08/08/ha-long-bay-2404431_1280.jpg",
         },
         {
-          head: "Smimming",
+          head: "Refresh and Relax",
           url: "https://cdn.pixabay.com/photo/2018/04/05/13/08/water-3292794_1280.jpg",
         },
         {
-          head: "Playing",
+          head: "Sports",
           url: "https://images.unsplash.com/photo-1660463531143-03e67b7113bc?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         },
       ],
