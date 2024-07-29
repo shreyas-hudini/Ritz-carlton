@@ -54,7 +54,7 @@ function HamburgerMenu() {
               icon={<EventAvailableOutlinedIcon />}
             />
             <BottomNavigationAction
-              label="EVENTS"
+              label="THINGS TO-DO"
               icon={<NaturePeopleOutlinedIcon />}
             />
             <BottomNavigationAction
