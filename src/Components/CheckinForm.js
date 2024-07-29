@@ -54,7 +54,7 @@ const currentDate = new Date();
     if (!formData.nationality) {
       newErrors.nationality = "Nationality is required";
     }
-    if (!formData.number || !phoneRegex.test(formData.number) ) {
+    if (!formData.number || formData.number<0 || !phoneRegex.test(formData.number) ) {
       newErrors.number = "Valid phone number is required";
     }
     if (!formData.dob || dayjs(formData.dob).isAfter(dayjs())) {
