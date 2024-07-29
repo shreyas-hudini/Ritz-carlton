@@ -12,15 +12,7 @@
   top: 10px;
   background: none;
   margin: 3%;
-  /* Button{
-    background: none;
-  } */
 }
-/* .buttonsCheckIn > Button{
-  background: none;
-  color: brown;
-} */
-
 .buttons::before {
   content: "";
   position: absolute;

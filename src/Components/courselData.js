@@ -5,10 +5,10 @@ export const textItems = [
   },
   {
     description:
-      "Signature cuisine and cultural experiences on offer.Showcasing both Japanese and Western cuisine.",
+      "Signature cuisine and cultural experiences on offer. Showcasing both Japanese and Western cuisine.",
   },
   {
     description:
-      "Your perfect getaway ,experience hospitality redefined, where every stay is an unforgettable journey.",
+      "Your perfect getaway, experience hospitality redefined, where every stay is an unforgettable journey.",
   },
 ];

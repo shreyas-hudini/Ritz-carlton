@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CheckinForm from "./Components/CheckinForm";
+import FormComponent from "./Components/CheckinForm";
 import Carousel from "./Components/Carousel";
 import Cards from "./Components/Cards";
 import ThingsCard from "./Components/ThingsCard";
@@ -11,8 +11,6 @@ const App = () => {
   const [signedIn, setSignedIn] = useState(false);
 
   const handleSignIn = () => {
-    // Example function to handle sign-in action
-    // You may replace this with actual authentication logic
     setSignedIn(true);
   };
 
@@ -23,7 +21,6 @@ const App = () => {
           <Carousel />
           <HotelCard />
           <Cards />
-         
           <ThingsCard />
           <DiningAndSpa />
           <HamburgerMenu></HamburgerMenu>
@@ -33,9 +30,8 @@ const App = () => {
           <Carousel />
           <HotelCard />
           <Cards />
-         
           <ThingsCard />
-          <CheckinForm onSignIn={handleSignIn} />
+          <FormComponent onSignIn={handleSignIn} />
         </>
       )}
     </div>
