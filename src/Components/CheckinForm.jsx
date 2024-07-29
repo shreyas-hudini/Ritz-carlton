@@ -64,9 +64,6 @@ const FormComponent = ({ onSignIn }) => {
       alert("You've successfully checked-in", formData);
       setDrawerOpen(false);
       onSignIn(true);
-      // } catch (error) {
-      //   console.error("Form submission error", error);
-      // }
     }
   };
 
