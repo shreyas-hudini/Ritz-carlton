@@ -30,14 +30,12 @@ h1 {
   flex: 0 0 auto;
   margin: 0 10px;
   padding: 20px;
-  background-color: #ffffff;
 }
 .eventsCard,
 .eventCardInfo {
   flex: 0 0 auto;
   margin: 0 10px;
   padding: 20px;
-  background-color: #ffffff;
 }
 .eventsCard {
   flex: 0 0 auto;
@@ -270,7 +268,7 @@ h1 {
   width: 40%;
   cursor: pointer;
   outline: 0;
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.75;
