@@ -6,11 +6,8 @@
 }
 
 .eventCardInfo:hover {
-
   transform: translateY(-10px);
-
 }
- 
 
 .eventRow {
   display: flex;
@@ -124,8 +121,6 @@ h1 {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
 
-
- 
   margin: 0% 8% 0% 12%;
   padding: 0%;
 }
@@ -187,7 +182,6 @@ h1 {
   transform: scale(1.1);
 }
 
-
 .contentCard {
   position: relative;
   padding: 20px;
@@ -237,7 +231,6 @@ h1 {
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 20px;
-  height: 200px;
   object-fit: cover;
   margin-right: 2rem;
 }
@@ -251,6 +244,9 @@ h1 {
   padding: 20px;
   margin-left: 8rem;
   margin-right: 8rem;
+  width: 75%;
+  margin: 20px auto;
+  margin-bottom: 0;
 }
 
 .diningAndSpaCards::-webkit-scrollbar {
@@ -266,6 +262,23 @@ h1 {
   margin-bottom: 3%;
 }
 
+.cardButton {
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  width: 40%;
+  cursor: pointer;
+  outline: 0;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+}
+
 @media (max-width: 480px) {
   .diningCards {
     margin-left: 2rem;
@@ -275,38 +288,30 @@ h1 {
     margin-left: 2rem;
     margin-right: 2rem;
   }
-  .thingsSquare{
+  .thingsSquare {
     /* background-color: chocolate; */
     margin: 0% 18% 0% 12%;
     /* overflow-wrap: normal; */
   }
   .thingsCard {
-    
-  width: 160px;
-  height: 160px;
-  margin:1% 2% 4% 2% ;
-  
-  
-}
-.thingsCard img{
-  margin:7% 2%;
-}
-
-.thingsContent h2 {
- 
-
-  font-size: 16px;
-  text-align: start;
-  
-}
-.thingsContent {
- 
-  width: 70%;
-  height: 70%;
-  display: flex;
-  align-items: start;
-  
-}
+    width: 160px;
+    height: 160px;
+    margin: 1% 2% 4% 2%;
   }
+  .thingsCard img {
+    margin: 7% 2%;
+  }
+
+  .thingsContent h2 {
+    font-size: 16px;
+    text-align: start;
+  }
+  .thingsContent {
+    width: 70%;
+    height: 70%;
+    display: flex;
+    align-items: start;
+  }
+}
 
 /* @media (min-width: 250px) and (max-width: 737px) {} */
