@@ -22,7 +22,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { setField } from "../redux/formSlice";
 
 const nameRegex = /^[a-zA-Z\s]*$/;
-const currentDate = new Date();
+// const currentDate = new Date();
 const firstName = document.getElementById("firstname");
 
 const FormComponent = ({ onSignIn }) => {
