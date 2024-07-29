@@ -18,7 +18,7 @@ const Carousel = () => {
 
     const interval = setInterval(() => {
       setCurrentSlide((currentSlide + 1) % textItems.length);
-    }, 10000);
+    }, 9000);
 
     document.addEventListener("click", handleSlideChange);
 
@@ -26,7 +26,7 @@ const Carousel = () => {
       document.removeEventListener("click", handleSlideChange);
       clearInterval(interval);
     };
-  }, [currentSlide, textItems.length]);
+  }, [currentSlide]);
 
   return (
     <div className="carousel">
