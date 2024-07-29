@@ -59,6 +59,23 @@ video {
   position: relative;
   bottom: 0%;
   color: white;
+  overflow: none;
+  /* animation: scrollText 3s linear infinite; */
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(100%);
+  }
+  25% {
+    transform: translateX(0%);
+  }
+  75% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 @media (max-width: 768px) {
