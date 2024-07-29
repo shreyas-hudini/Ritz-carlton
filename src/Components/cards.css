@@ -40,7 +40,7 @@ h1 {
   flex: 0 0 auto;
   margin: 0 10px;
   padding: 20px;
-  background-color: #ffffff;
+  scroll-snap-align: start;
 }
 .eventsCard {
   flex: 0 0 auto;
