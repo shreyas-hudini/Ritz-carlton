@@ -38,9 +38,13 @@ const FormComponent = ({ onSignIn }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Form submitted", formData);
-    setDrawerOpen(false);
-    onSignIn(true);
+    try {
+      alert("You've successfully checked-in", formData);
+      setDrawerOpen(false);
+      onSignIn(true);
+    } catch (error) {
+      console.error("Form submission error", error);
+    }
   };
 
   const toggleDrawer = () => {
@@ -52,15 +56,19 @@ const FormComponent = ({ onSignIn }) => {
       <div className="btnCheckIn">
         <Button
           sx={{
-            backgroundColor: "#007bff",
             color: "#ffffff",
+            borderColor: "#ffffff",
+            backgroundColor: "transparent",
             "&:hover": {
-              backgroundColor: "#0056b3",
+              color: "#45b7d1",
+              borderColor: "#45b7d1",
+              backgroundColor: "transparent",
+              transform: "scale(1.1)",
             },
-            borderRadius: 2,
-            boxShadow: 2,
+            borderRadius: 1,
+            boxShadow: 1,
           }}
-          variant="contained"
+          variant="outlined"
           onClick={toggleDrawer}
         >
           Checkin
@@ -76,6 +84,7 @@ const FormComponent = ({ onSignIn }) => {
             maxHeight: "80vh",
             borderTopLeftRadius: 16,
             borderTopRightRadius: 16,
+            backgroundColor: "rgba(255, 255, 255, 0.5)",
           },
         }}
       >
@@ -86,13 +95,13 @@ const FormComponent = ({ onSignIn }) => {
             display: "flex",
             flexDirection: "column",
             gap: 2,
-            width: 500,
+            width: "90%",
             maxWidth: 600,
             mx: "auto",
             p: 3,
             borderRadius: 2,
             boxShadow: 3,
-            bgcolor: "#f5f5f5",
+            bgcolor: "rgba(245, 245, 245, 0.9)",
           }}
         >
           <Box
@@ -130,42 +139,40 @@ const FormComponent = ({ onSignIn }) => {
             fullWidth
             sx={{ bgcolor: "#ffffff" }}
           />
-          <div className="GenderNationality">
-            <FormControl fullWidth>
-              <InputLabel id="gender-label">Gender</InputLabel>
-              <Select
-                required
-                labelId="gender-label"
-                id="gender"
-                name="gender"
-                value={formData.gender}
-                onChange={handleInputChange}
-                label="Gender"
-                sx={{ bgcolor: "#ffffff" }}
-              >
-                <MenuItem value="male">Male</MenuItem>
-                <MenuItem value="female">Female</MenuItem>
-                <MenuItem value="preferNotToSay">Others </MenuItem>
-              </Select>
-            </FormControl>
-            <FormControl fullWidth>
-              <InputLabel id="nationality-label">Nationality</InputLabel>
-              <Select
-                required
-                labelId="nationality-label"
-                id="nationality"
-                name="nationality"
-                value={formData.nationality}
-                onChange={handleInputChange}
-                label="Nationality"
-                sx={{ bgcolor: "#ffffff" }}
-              >
-                <MenuItem value="Indian">Indian</MenuItem>
-                <MenuItem value="USA">USA</MenuItem>
-                <MenuItem value="French">French</MenuItem>
-              </Select>
-            </FormControl>
-          </div>
+          <FormControl fullWidth sx={{ bgcolor: "#ffffff" }}>
+            <InputLabel id="gender-label">Gender</InputLabel>
+            <Select
+              fullWidth
+              required
+              labelId="gender-label"
+              id="gender"
+              name="gender"
+              value={formData.gender}
+              onChange={handleInputChange}
+              label="Gender"
+            >
+              <MenuItem value="male">Male</MenuItem>
+              <MenuItem value="female">Female</MenuItem>
+              <MenuItem value="preferNotToSay">Others</MenuItem>
+            </Select>
+          </FormControl>
+          <FormControl fullWidth sx={{ bgcolor: "#ffffff" }}>
+            <InputLabel id="nationality-label">Nationality</InputLabel>
+            <Select
+              fullWidth
+              required
+              labelId="nationality-label"
+              id="nationality"
+              name="nationality"
+              value={formData.nationality}
+              onChange={handleInputChange}
+              label="Nationality"
+            >
+              <MenuItem value="Indian">Indian</MenuItem>
+              <MenuItem value="USA">USA</MenuItem>
+              <MenuItem value="French">French</MenuItem>
+            </Select>
+          </FormControl>
           <TextField
             required
             id="number"
@@ -180,7 +187,7 @@ const FormComponent = ({ onSignIn }) => {
           />
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
-              label="Select Date of Birth"
+              label="Date of Birth"
               value={formData.dob}
               onChange={(value) => handleDateChange(value, "dob")}
               renderInput={(params) => (
@@ -190,7 +197,8 @@ const FormComponent = ({ onSignIn }) => {
           </LocalizationProvider>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <TimePicker
-              label="Select Arrival Time"
+              fullWidth
+              label="Arrival Time"
               value={formData.arrival}
               onChange={(value) => handleDateChange(value, "arrival")}
               renderInput={(params) => (
@@ -198,7 +206,7 @@ const FormComponent = ({ onSignIn }) => {
               )}
             />
           </LocalizationProvider>
-          <div className="buttonCeckIn">
+          <div className="buttonCheckIn">
             <Button
               type="submit"
               variant="contained"
@@ -213,7 +221,7 @@ const FormComponent = ({ onSignIn }) => {
                 },
               }}
             >
-              Submit
+              Check-In
             </Button>
           </div>
         </Box>
