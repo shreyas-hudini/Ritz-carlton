@@ -36,6 +36,7 @@ h1 {
   flex: 0 0 auto;
   margin: 0 10px;
   padding: 20px;
+  scroll-snap-align: start;
 }
 .eventsCard {
   flex: 0 0 auto;
@@ -180,6 +181,86 @@ h1 {
   transform: scale(1.1);
 }
 
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  /* left: 0; */
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popupOverlay p {
+  position: absolute;
+  top: 10%;
+  left: 46%;
+  color: white;
+  font-weight: 600;
+  font-family: "Playwrite AU NSW", cursive;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* .popupContent {
+  position: relative;
+  background: white;
+  padding: 20px;
+  text-align: center;
+  max-width: 90%;
+  max-height: 90%;
+} */
+
+.popupContent img {
+  max-width: 80vw;
+  max-height: 60vh;
+  /* margin-bottom: 10px; */
+}
+
+.prevBtn,
+.nextBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1;
+}
+
+.popupContent-Hover {
+  object-fit: cover;
+}
+
+.closeBtn {
+  right: 5%;
+  position: absolute;
+  top: 13%;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+.closeBtn:hover {
+  transform: scale(1.2);
+}
+
+.fa-solid {
+  font-size: large;
+}
+
+.prevBtn {
+  left: 8%;
+}
+
+.nextBtn {
+  right: 7%;
+}
 .contentCard {
   position: relative;
   padding: 20px;
