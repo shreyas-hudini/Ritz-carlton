@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './Button';
 
 // CardImage Component
 const CardImage = ({ bgImage }) => {
@@ -17,6 +18,7 @@ const CardContent = ({ title, category, details }) => {
       <h3>{title}</h3>
       <p>{category}</p>
       <p>{details}</p>
+      <Button />
     </div>
   );
 };
@@ -36,3 +38,4 @@ const Card = ({ data }) => {
 };
 
 export default Card;
+
