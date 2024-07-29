@@ -20,10 +20,25 @@ import {
 } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { setField } from "../redux/formSlice";
+import { styled } from "@mui/system";
 
 const nameRegex = /^[a-zA-Z\s]*$/;
 // const currentDate = new Date();
 const firstName = document.getElementById("firstname");
+
+const CustomTextField = styled(TextField)({
+  "& input[type=number]": {
+    "-moz-appearance": "textfield",
+    "&::-webkit-outer-spin-button": {
+      "-webkit-appearance": "none",
+      margin: 0,
+    },
+    "&::-webkit-inner-spin-button": {
+      "-webkit-appearance": "none",
+      margin: 0,
+    },
+  },
+});
 
 const FormComponent = ({ onSignIn }) => {
   const dispatch = useDispatch();
@@ -181,7 +196,7 @@ const FormComponent = ({ onSignIn }) => {
               <MenuItem value="French">French</MenuItem>
             </Select>
           </FormControl>
-          <TextField
+          <CustomTextField
             required
             id="number"
             name="number"
