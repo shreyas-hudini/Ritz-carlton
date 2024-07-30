@@ -22,19 +22,33 @@ import {
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { setField } from "../redux/formSlice";
 import dayjs from 'dayjs';
- 
+import {styled} from "@mui/system";
+
+const CustomTextField = styled(TextField)({
+  "& input[type=number]": {
+    "-moz-appearance": "textfield",
+    "&::-webkit-outer-spin-button": {
+      "-webkit-appearance": "none",
+      margin: 0,
+    },
+    "&::-webkit-inner-spin-button": {
+      "-webkit-appearance": "none",
+      margin: 0,
+    },
+  },
+}); 
 const FormComponent = ({ onSignIn }) => {
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.form);
  
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [errors, setErrors] = useState({});
- 
+  
   const validateForm = () => {
     const newErrors = {};
     const phoneRegex = /^\s*(?:\+?(\d{1,3}))?[-.\s()]*(\d{3})[-.\s()]*(\d{3})[-.\s()]*(\d{4})(?:\s*x(\d+))?\s*$/;
     const nameRegex = /^[a-zA-Z\s]*$/;
-const currentDate = new Date();
+// const currentDate = new Date();
    
     if (!formData.firstname ) {
       newErrors.firstname = "First name is required";
@@ -222,7 +236,7 @@ const currentDate = new Date();
             </Select>
             {errors.nationality && <FormHelperText>{errors.nationality}</FormHelperText>}
           </FormControl>
-          <TextField
+          <CustomTextField
             required
             id="number"
             name="number"
